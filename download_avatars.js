@@ -3,6 +3,11 @@ var secrets = require("./secrets");
 var fs = require('fs');
 var repo1 = process.argv[2];
 var repo2 = process.argv[3];
+if (repo1 === undefined  || repo2 === undefined) {
+    console.log ("----------------------------------------------");
+    console.log ("Please, give both arguments - <owner> <repo>  |");
+    console.log ("----------------------------------------------");
+} else {
 
 console.log('Welcome to the GitHub Avatar Downloader!');
 
@@ -41,4 +46,4 @@ getRepoContributors(repo1, repo2, function(err, result) {
         downloadImageByURL(user.avatar_url, "pic/" + user.login +".jpg")
     });
 });
-
+}
